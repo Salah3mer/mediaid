@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mediaid/config/app_colors.dart';
 import 'package:mediaid/config/theme/text_theme.dart';
@@ -19,9 +17,12 @@ class CustomTextFormFeild extends StatelessWidget {
   bool? isObScure;
   Widget? suffixIconbutton;
   IconData? prefixIcon;
+  int? maxLine;
+  double? contantPadding;
   CustomTextFormFeild({
     super.key,
     this.textInputType,
+    this.maxLine,
     this.isObScure,
     this.suffixIconbutton,
     this.prefixIcon,
@@ -34,6 +35,7 @@ class CustomTextFormFeild extends StatelessWidget {
     this.validator,
     this.readOnly = false,
     required this.label,
+    this.contantPadding,
   });
 
   @override
@@ -42,6 +44,7 @@ class CustomTextFormFeild extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 10.h),
         child: TextFormField(
+          maxLines: maxLine ?? 1,
           controller: controller,
           onTap: onTap,
           onChanged: onCahange,
@@ -52,7 +55,7 @@ class CustomTextFormFeild extends StatelessWidget {
           keyboardType: textInputType,
           obscureText: isObScure ?? false,
           readOnly: readOnly,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: TextStyles.font18BlackRegular,
           decoration: InputDecoration(
               prefixIcon: Icon(
                 prefixIcon,
@@ -61,7 +64,9 @@ class CustomTextFormFeild extends StatelessWidget {
               label: Text(
                 label,
               ),
-              contentPadding: EdgeInsets.symmetric(horizontal: 20.w),
+              contentPadding: EdgeInsets.symmetric(
+                  horizontal: contantPadding ?? 20.w,
+                  vertical: contantPadding ?? 0),
               counterStyle: TextStyles.font13DarkBlueMedium,
               floatingLabelStyle: TextStyles.font13BlueRegular,
               suffixIcon: suffixIconbutton,

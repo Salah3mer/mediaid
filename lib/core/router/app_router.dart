@@ -6,14 +6,15 @@ import 'package:mediaid/features/auth/presentation/cubits/login_cubit/login_cubi
 import 'package:mediaid/features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'package:mediaid/features/auth/presentation/view/login_view.dart';
 import 'package:mediaid/features/auth/presentation/view/register_view.dart';
+import 'package:mediaid/features/home/data/models/home_model/doctor.dart';
 import 'package:mediaid/features/home/presentation/cubit/cubit/home_cubit.dart';
+import 'package:mediaid/features/home/presentation/view/doctor_detailes_view.dart';
 import 'package:mediaid/features/home/presentation/view/home_view.dart';
 import 'package:mediaid/features/splash_onboarding/presentation/view/onboarding_view.dart';
 import 'package:mediaid/features/splash_onboarding/presentation/view/splash_view.dart';
 
 class AppRouter extends Routes {
   static Route? onGenratingRoute(RouteSettings settings) {
-    final argument = settings.arguments;
     switch (settings.name) {
       case Routes.initalRoute:
         return MaterialPageRoute(builder: ((context) => const SplashView()));
@@ -38,6 +39,12 @@ class AppRouter extends Routes {
                   create: (context) => HomeCubit(getIt())..getHomeData(),
                   child: const HomeView(),
                 ));
+      case Routes.doctorDetailesView:
+        final doctor = settings.arguments as Doctor;
+
+        return MaterialPageRoute(
+          builder: (context) => DoctorDetailsView(doctor: doctor),
+        );
 
       default:
         return onRouteError();
