@@ -7,7 +7,8 @@ import 'package:mediaid/features/auth/presentation/cubits/register_cubit/registe
 import 'package:mediaid/features/auth/presentation/view/login_view.dart';
 import 'package:mediaid/features/auth/presentation/view/register_view.dart';
 import 'package:mediaid/features/home/data/models/home_model/doctor.dart';
-import 'package:mediaid/features/home/presentation/cubit/cubit/home_cubit.dart';
+import 'package:mediaid/features/home/presentation/cubit/home_cubit/home_cubit.dart';
+import 'package:mediaid/features/home/presentation/cubit/search_cubit/search_cubit.dart';
 import 'package:mediaid/features/home/presentation/view/doctor_detailes_view.dart';
 import 'package:mediaid/features/home/presentation/view/home_view.dart';
 import 'package:mediaid/features/splash_onboarding/presentation/view/onboarding_view.dart';
@@ -35,10 +36,19 @@ class AppRouter extends Routes {
                 ));
       case Routes.homeView:
         return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) => HomeCubit(getIt())..getHomeData(),
-                  child: const HomeView(),
-                ));
+            builder: (context) => MultiBlocProvider(
+             providers : [
+                BlocProvider(
+                      create: (context) => HomeCubit(getIt())..getHomeData(),
+
+                    ),
+               BlocProvider(
+                      create: (context) => SearchCubit(getIt())
+
+                    ),
+              ],
+              child: const HomeView(),
+            ));
       case Routes.doctorDetailesView:
         final doctor = settings.arguments as Doctor;
 

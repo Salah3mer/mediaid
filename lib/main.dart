@@ -19,7 +19,8 @@ void main() async {
       CashHelper.getString(key: AppConstans.userNameKey) ?? 'There';
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.light.copyWith(
-        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.light,
+        statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarColor: Colors.white,
         systemNavigationBarIconBrightness: Brightness.dark),

@@ -7,7 +7,8 @@ import 'package:mediaid/core/router/router.dart';
 import 'package:mediaid/core/utils/helper/extension.dart';
 import 'package:mediaid/core/utils/helper/spacing.dart';
 import 'package:mediaid/core/utils/helper/widget/textformfield.dart';
-import 'package:mediaid/features/home/presentation/cubit/cubit/home_cubit.dart';
+import 'package:mediaid/features/home/presentation/cubit/home_cubit/home_cubit.dart';
+import 'package:mediaid/features/home/presentation/cubit/search_cubit/search_cubit.dart';
 import 'package:mediaid/features/home/presentation/view/widgets/doctor_list_item.dart';
 import 'package:mediaid/features/home/presentation/view/widgets/doctor_speciality_list.dart';
 import 'package:mediaid/features/home/presentation/view/widgets/home_app_bar.dart';
@@ -19,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        if (state is HomeSuccessState) {
+        if (state is HomeSuccessState ) {
           return SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -35,7 +36,9 @@ class HomeViewBody extends StatelessWidget {
                     prefixIcon: IconBroken.Search,
                     label: 'Search',
                     readOnly: true,
-                    onTap: () {},
+                    onTap: () {
+                      HomeCubit.get(context).changeIndex(1);
+                    },
                   ),
                   verticalSpace(10),
                   DoctorSpeciality(
@@ -80,8 +83,8 @@ class HomeViewBody extends StatelessWidget {
           } else {
             return const SizedBox();
           }
-        } else {
-          return const CircularProgressIndicator();
+        } else  {
+          return Center(child: const CircularProgressIndicator(color: Colors.blue,));
         }
       },
     );

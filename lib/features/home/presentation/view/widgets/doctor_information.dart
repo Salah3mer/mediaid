@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mediaid/config/app_colors.dart';
 import 'package:mediaid/config/icon_broken.dart';
 import 'package:mediaid/config/theme/text_theme.dart';
@@ -24,7 +25,12 @@ class DoctorInformation extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('Dr.${doctor.name!}', style: TextStyles.font20BlackBold),
+              Text('Dr.${doctor.name!}',
+                  style: TextStyle(
+                    fontSize: 19.spMin,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  )),
               const Spacer(),
               Container(
                   decoration: const BoxDecoration(

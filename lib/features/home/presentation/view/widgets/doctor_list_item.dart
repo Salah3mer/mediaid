@@ -25,7 +25,7 @@ class DoctorListItem extends StatelessWidget {
         context.pushNamed(Routes.doctorDetailesView, arguments: doctor[index]);
       },
       child: Container(
-        height: 130.h,
+        height: 133.h,
         decoration: BoxDecoration(
             color: AppColors.textFormFieldFillLightColor,
             borderRadius: BorderRadius.circular(15)),
@@ -46,19 +46,26 @@ class DoctorListItem extends StatelessWidget {
                           'https://cdn-icons-png.flaticon.com/128/5550/5550309.png'))),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.w),
+              padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 5.w),
+              // padding: const EdgeInsets.only(top: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Dr. ${doctor[index].name}',
-                    style: TextStyles.font16BlackBold,
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.spMin,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     ' ${doctor[index].degree}  | ${doctor[index].city!.name} ',
+                    style: TextStyles.font13GrayRegular,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyles.font13GrayRegular,
                   ),
                   verticalSpace(10),
                   Row(
@@ -81,9 +88,7 @@ class DoctorListItem extends StatelessWidget {
                               ' Appoint Price  : ${doctor[index].appointPrice}  \$ '),
                         ],
                       ),
-                      SizedBox(
-                        width: 15.w,
-                      ),
+                      horizontalSpace(5),
                       Container(
                         width: 40.w,
                         height: 40.h,
