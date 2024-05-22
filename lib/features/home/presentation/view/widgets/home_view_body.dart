@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        if (state is HomeSuccessState ) {
+        if (state is HomeSuccessState) {
           return SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -83,8 +83,11 @@ class HomeViewBody extends StatelessWidget {
           } else {
             return const SizedBox();
           }
-        } else  {
-          return Center(child: const CircularProgressIndicator(color: Colors.blue,));
+        } else {
+          return Center(
+              child: const CircularProgressIndicator(
+            color: Colors.blue,
+          ));
         }
       },
     );

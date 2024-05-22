@@ -30,12 +30,14 @@ class SearchListView extends StatelessWidget {
               child: const Text('You have To Loagin Agin'),
               onPressed: () => context.pushReplacementNamed(Routes.loginView),
             ));
-          }else return SizedBox();
+          } else
+            return SizedBox();
         } else if (state is SearchLoadingState) {
           return const Center(
               child: CircularProgressIndicator(
-              color: Colors.blue,
-              ));}else {
+            color: Colors.blue,
+          ));
+        } else {
           return SizedBox();
         }
       },

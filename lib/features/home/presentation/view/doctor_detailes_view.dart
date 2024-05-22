@@ -10,9 +10,6 @@ class DoctorDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-
-        body: DetailesViewBody(doctor: doctor));
+    return Scaffold(body: DetailesViewBody(doctor: doctor));
   }
 }

@@ -63,9 +63,8 @@ class SearchViewBody extends StatelessWidget {
             verticalSpace(10),
             CustomTextFormFeild(
               label: 'Search',
-
               prefixIcon: IconBroken.Search,
-              onCahange: (val){
+              onCahange: (val) {
                 BlocProvider.of<SearchCubit>(context).search(val);
               },
             ),

@@ -4,4 +4,5 @@ class EndPoints {
   static const registerEndPoint = 'auth/register';
   static const homeEndPoint = 'home/index';
   static const searchEndPoint = 'doctor/doctor-search?name=';
+  static const profileEndPoint = 'user/profile';
 }

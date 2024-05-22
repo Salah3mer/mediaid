@@ -37,18 +37,14 @@ class AppRouter extends Routes {
       case Routes.homeView:
         return MaterialPageRoute(
             builder: (context) => MultiBlocProvider(
-             providers : [
-                BlocProvider(
+                  providers: [
+                    BlocProvider(
                       create: (context) => HomeCubit(getIt())..getHomeData(),
-
                     ),
-               BlocProvider(
-                      create: (context) => SearchCubit(getIt())
-
-                    ),
-              ],
-              child: const HomeView(),
-            ));
+                    BlocProvider(create: (context) => SearchCubit(getIt())),
+                  ],
+                  child: const HomeView(),
+                ));
       case Routes.doctorDetailesView:
         final doctor = settings.arguments as Doctor;
 

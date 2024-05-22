@@ -7,6 +7,7 @@ import 'package:mediaid/features/home/data/models/home_model/home_model.dart';
 import 'package:mediaid/features/home/data/repository/home_repo_impl.dart';
 import 'package:mediaid/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:mediaid/features/home/presentation/view/widgets/search_veiw,body.dart';
+import 'package:mediaid/features/profile/presentation/view/profile_view.dart';
 
 part 'home_state.dart';
 
@@ -16,21 +17,19 @@ class HomeCubit extends Cubit<HomeState> {
   static HomeCubit get(context) => BlocProvider.of(context);
 
   int currantIndex = 0;
-  void changeIndex (int index){
-    emit( ChangeIndexLoadingState());
-    currantIndex =index;
-    if(currantIndex==0)
-      {
-        getHomeData();
-      }
+  void changeIndex(int index) {
+    emit(ChangeIndexLoadingState());
+    currantIndex = index;
+    if (currantIndex == 0) {
+      getHomeData();
+    }
     emit(ChangeIndexSuccessState());
   }
-  
+
   List<Widget> currantView = [
     const HomeViewBody(),
     const SearchViewBody(),
-    const HomeViewBody(),
-    const SearchViewBody(),
+    const ProfileView(),
   ];
 
   void getHomeData() async {

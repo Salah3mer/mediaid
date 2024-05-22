@@ -10,7 +10,9 @@ sealed class HomeState extends Equatable {
 final class HomeInitial extends HomeState {}
 
 final class HomeLoadingState extends HomeState {}
+
 final class ChangeIndexLoadingState extends HomeState {}
+
 final class ChangeIndexSuccessState extends HomeState {}
 
 final class HomeSuccessState extends HomeState {
