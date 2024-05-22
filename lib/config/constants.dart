@@ -12,10 +12,9 @@ class AppConstans {
   static String userName = '';
 
   static List<String> specialityImageUrl = [
-    'https://cdn-icons-png.flaticon.com/128/5550/5550309.png',
-    'https://cdn-icons-png.flaticon.com/128/3695/3695995.png',
+    'https://cdn-icons-png.flaticon.com/128/1833/1833840.png',
     'https://cdn-icons-png.flaticon.com/128/4702/4702202.png',
-    'https://cdn-icons-png.flaticon.com/128/10154/10154414.png',
-    'https://cdn-icons-png.flaticon.com/128/8519/8519747.png'
+    'https://cdn-icons-png.flaticon.com/128/2864/2864292.png',
+    'https://cdn-icons-png.flaticon.com/128/4148/4148345.png'
   ];
 }
