@@ -27,6 +27,8 @@ class LoginViewBody extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccessState) {
           AppConstans.token = state.authResponceBodyModel.userData!.token!;
+          AppConstans.userName =
+              state.authResponceBodyModel.userData!.username!;
           CashHelper.setString(
               key: AppConstans.tokenKey,
               value: state.authResponceBodyModel.userData!.token!);
